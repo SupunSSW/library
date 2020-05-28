@@ -45,7 +45,7 @@
                     <label for="author">Author</label>
                     <select name="author" id="author" class="form-control">
                         @foreach ($authors as $author)
-                    <option value="{{ $author->id }}">{{ $author->fname }} {{ $author->lname }}</option>
+                            <option value="{{ $author->id }}" @if(isset($book)) @if($author->id == $book->author_id) selected @endif @endif>{{ $author->fname }} {{ $author->lname }}</option>
                         @endforeach
                     </select>
                 </div>

@@ -48,6 +48,7 @@ class AuthorController extends Controller
     }
 
     public function show($id) {
-        return view('show')->with('books', Book::where('author_id',$id)->cursor());
+        // return view('show')->with('books', Book::where('author_id',$id)->cursor());
+        return view('show')->with('authors', Author::find($id));
     }
 }

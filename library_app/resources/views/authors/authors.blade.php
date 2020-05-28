@@ -31,7 +31,7 @@
                 <tbody>
                     @foreach ($authors as $author)
                         <tr>
-                            <td>{{$author->fname}}{{$author->id}}</td>
+                            <td>{{$author->fname}}</td>
                             <td>{{$author->lname}}</td>
                             <td><a href="{{ route('authors.show', $author->id) }}" class="btn btn-success btn-sm">View Books</a></td>
                             <td>

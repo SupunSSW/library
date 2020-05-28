@@ -10,8 +10,7 @@
 
     <div class="card">
         <div class="card-header">
-            <a href="{{ route('books.create') }}" class="btn btn-primary float-right">+ New Book</a>
-            <h3>Books</h3>
+        <h3>Books of "{{ $authors->fname }} {{ $authors->lname }}"</h3>
         </div>
 
         <div class="card-body">
@@ -27,12 +26,10 @@
                     <th>ISBN</th>
                 </thead>
                 <tbody>
-                    {{-- {{ $books->title }}
-                    {{ $books->isbn }} --}}
-                    @foreach ($books as $book)
+                    @foreach ( $authors->book as $book)
                         <tr>
-                            <td>{{ $book->title }}</td>
-                            <td>{{ $book->isbn }}</td>
+                            <td>{{$book->title}}</td>
+                            <td>{{$book->isbn}}</td>
                         </tr>
                     @endforeach
                 </tbody>
