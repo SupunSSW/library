@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,3 +33,5 @@ Route::post('/authors','AuthorController@store')->name('authors.store');
 
 Route::get('/authors/{author}/edit','AuthorController@edit')->name('authors.edit');
 Route::put('/authors/{author}', 'AuthorController@update')->name('authors.update');
+
+Route::get('/authors/{id}/show', 'AuthorController@show')->name('authors.show');

@@ -26,16 +26,18 @@
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th></th>
+                    <th></th>
                 </thead>
                 <tbody>
                     @foreach ($authors as $author)
                         <tr>
-                            <td>{{$author->fname}}</td>
+                            <td>{{$author->fname}}{{$author->id}}</td>
                             <td>{{$author->lname}}</td>
-                        <td>
-                            <a href="{{ route('authors.edit', $author->id) }}" class="btn btn-info btn-sm">Edit</a>
-                            <button onclick="deleteitem({{ $author->id }})" class="btn btn-danger btn-sm">Delete</button>
-                        </td>
+                            <td><a href="{{ route('authors.show', $author->id) }}" class="btn btn-success btn-sm">View Books</a></td>
+                            <td>
+                                <a href="{{ route('authors.edit', $author->id) }}" class="btn btn-info btn-sm">Edit</a>
+                                <button onclick="deleteitem({{ $author->id }})" class="btn btn-danger btn-sm">Delete</button>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

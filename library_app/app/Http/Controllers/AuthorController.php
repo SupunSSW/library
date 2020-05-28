@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Author;
+use App\Book;
 use App\Http\Requests\AuthorRequest;
 use App\Http\Requests\UpdateAuthorRequest;
 use Illuminate\Http\Request;
@@ -44,5 +45,9 @@ class AuthorController extends Controller
         session()->flash('success', 'Author Updated!');
 
         return redirect( route('authors') );
+    }
+
+    public function show($id) {
+        return view('show')->with('books', Book::where('author_id',$id)->cursor());
     }
 }
