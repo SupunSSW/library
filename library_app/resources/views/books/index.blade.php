@@ -33,7 +33,7 @@
                         <tr>
                             <td>{{ $book->title }}</td>
                             <td>{{ $book->isbn }}</td>
-                            <td>{{ $book->author_id }}</td>
+                            <td>{{ $book->author->fname}} {{ $book->author->lname }}</td>
                             <td><a href="{{ route('books.edit', $book->id) }}" class="btn btn-info btn-sm">Edit</a></td>
                         </tr>
                     @endforeach

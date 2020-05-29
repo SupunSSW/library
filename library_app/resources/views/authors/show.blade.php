@@ -10,7 +10,7 @@
 
     <div class="card">
         <div class="card-header">
-        <h3>Books of "{{ $authors->fname }} {{ $authors->lname }}"</h3>
+        <h3>Author : {{ $author->fname }} {{ $author->lname }}</h3>
         </div>
 
         <div class="card-body">
@@ -26,7 +26,7 @@
                     <th>ISBN</th>
                 </thead>
                 <tbody>
-                    @foreach ( $authors->book as $book)
+                    @foreach ( $author->book as $book)
                         <tr>
                             <td>{{$book->title}}</td>
                             <td>{{$book->isbn}}</td>

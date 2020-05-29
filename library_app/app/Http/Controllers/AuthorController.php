@@ -10,8 +10,8 @@ use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {
-    public function authors() {
-        return view('authors.authors')->with('authors', Author::all());
+    public function index() {
+        return view('authors.index')->with('authors', Author::all());
     }
 
     public function create() {
@@ -27,7 +27,7 @@ class AuthorController extends Controller
 
         session()->flash('success', 'Author Created!');
 
-        return redirect(route('authors'));
+        return redirect(route('authors.index'));
     }
 
     public function edit(Author $author) {
@@ -39,16 +39,15 @@ class AuthorController extends Controller
         $author->update([
             'fname' => $request->fname,
             'lname' => $request->lname
-
         ]);
 
         session()->flash('success', 'Author Updated!');
 
-        return redirect( route('authors') );
+        return redirect( route('authors.index') );
     }
 
     public function show($id) {
         // return view('show')->with('books', Book::where('author_id',$id)->cursor());
-        return view('show')->with('authors', Author::find($id));
+        return view('authors.show')->with('author', Author::find($id));
     }
 }

@@ -27,11 +27,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home')->with('books', Book::all())->with('authors', Author::all());
+        return view('books.index')->with('books', Book::all())->with('authors', Author::all());
     }
 
     public function create() {
-        return view('create')->with('authors', Author::all());
+        return view('books.create')->with('authors', Author::all());
     }
 
     public function store(BookRequest $request) {
@@ -48,7 +48,7 @@ class HomeController extends Controller
     }
 
     public function edit(Book $book) {
-        return view('create')->with('book', $book)->with('authors', Author::all());
+        return view('books.create')->with('book', $book)->with('authors', Author::all());
     }
 
     public function update( UpdateBookRequest $request, Book $book) {
